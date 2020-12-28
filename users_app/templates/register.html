@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags%}
+
+{%block title%}
+    <title>REGISTRATION</title>
+{% endblock %}
+
+{%block content%}
+   <h2>REGIISTER ON TASKMATE....</h2>
+   
+   {%if messages%}
+    {%for msg in messages%}
+      <div class="alert alert-warning alert-dismissible fade show col-lg-6" role="alert">
+        <strong>{{msg}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {%endfor%}
+  {%endif%}    
+   
+   <div class="container">
+        <form method="POST" class="mt-5">
+            {% csrf_token %}
+            {{userform | crispy}}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form> 
+    </div>   
+{%endblock%}

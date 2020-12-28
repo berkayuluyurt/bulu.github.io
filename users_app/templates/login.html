@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+
+{%block title%}
+    <title>LOG-IN</title>
+{%endblock%}
+
+{%block content%}
+    <h1> LOGIN - TASK MANAGER</h1>
+    <div class="container">
+        <form method="POST" class="mt-5">
+            {% csrf_token %}
+            {{form | crispy}}
+            <button type="submit" class="btn btn-primary">LOGIN</button>
+        </form> 
+    </div>   
+{%endblock%}    
