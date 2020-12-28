@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %}
+    <title>home - task manager</title>
+{% endblock title %}
+{% block content %}
+    
+    
+    </br>
+    {%if messages%}
+        {%for msg in messages%}
+        <div class="alert alert-warning alert-dismissible fade show col-lg-6" role="alert">
+            <strong>{{msg}}</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {%endfor%}
+    {%endif%}
+    </br>    
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+                <img src="{% static 'images/tree.jpg'%}" alt= "notes "class = "rounded-lg shadow-sm" width="350" height="250">
+            </div>
+            <div class="col-4">
+                <img src="{% static 'images/duck.jpg'%}" alt= "notes " class = "rounded-lg shadow-sm" width="350" height="250">
+            </div>
+            <div class="col-4">
+                <img src="{% static 'images/calendar.png'%}" alt= "notes " class = "rounded-lg shadow-sm" width="350" height="250">
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-10 offset-md-1">
+                <center><p style= "color: yellow" class="h1 text-primary" >Let's Plan Your Day</p></center>
+                <center><p class="h2 text-primary mt-3">Get Your Day Organized!</p></center>
+                <center><a href="{%url 'todolist'%}"><button type="button" class="btn btn-primary shadow-sm btn-lg mt-3">Lets Get Started!</button></a></center>
+            </div>
+        </div>    
+    </div>
+{% endblock content %}
